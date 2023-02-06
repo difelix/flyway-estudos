@@ -1,0 +1,2 @@
+ALTER TABLE IF EXISTS pokemon
+ADD evolutions TEXT ARRAY;
