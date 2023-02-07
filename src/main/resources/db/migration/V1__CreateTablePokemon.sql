@@ -1,5 +1,7 @@
+CREATE SEQUENCE IF NOT EXISTS pokemon_id_serial;
+
 CREATE TABLE IF NOT EXISTS pokemon (
-  id bigint primary key,
+  id bigint not null default nextval('pokemon_id_serial') primary key,
   name VARCHAR(100) not null unique,
   type VARCHAR(100) not null,
   has_evolution BOOLEAN not null

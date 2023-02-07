@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -21,7 +22,8 @@ import lombok.NoArgsConstructor;
 public class Pokemon {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "pokemon_id_generator")
+  @SequenceGenerator(name = "pokemon_id_generator", sequenceName = "pokemon_id_serial", allocationSize = 1)
   private Long id;
 
   @Column(name = "name", nullable = false, unique = true)
